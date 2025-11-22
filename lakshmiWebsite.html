@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+
+    /* Fade-out Home Section */
+    #home {
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      text-align: center;
+    }
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+
+    /* Company Sections */
+    .company-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .app-card {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(6px);
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #444, #666);
+      margin: 0 auto 15px auto;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      background: #ffcc00;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .details {
+      max-width: 800px;
+      margin-top: 40px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      padding-bottom: 60px;
+    }
+    .details.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    /* Project Section */
+    #projectsPage {
+      min-height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    #projectsPage.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Dark/Light Toggle */
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* Light Mode */
+    body.light {
+      background: #f2f2f2;
+      color: black;
+    }
+    body.light .app-card {
+      background: rgba(0,0,0,0.05);
+    }
+    body.light button {
+      background: #ff9900;
+    }
+    body.light #themeToggle {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="themeToggle">🌓</button>
+
+  <section id="home">
+    <h1>Hello, I'm Abhijit</h1>
+    <p>I have worked at multiple companies building production-grade apps</p>
+    <button onclick="window.location='resume.pdf'">Download Resume</button>
+  </section>
+
+  <!-- Multiple Companies Generated Dynamically -->
+  <div id="companiesContainer"></div>
+
+  <!-- Projects Page -->
+  <section id="projectsPage">
+    <h1>Projects</h1>
+    <p>All my notable apps and engineering work.</p>
+  </section>
+
+  <script>
+    const companies = [
+      {
+        name: "XYZ App",
+        role: "Senior Developer",
+        years: "2020 - 2024",
+        description: "Built scalable backend APIs, improved system performance by 60%, implemented CI/CD pipelines.",
+        video: "demo.mp4"
+      },
+      {
+        name: "Alpha Finance App",
+        role: "Full Stack Developer",
+        years: "2018 - 2020",
+        description: "Developed a financial dashboard, integrated live market feeds, added advanced analytics.",
+        video: "demo2.mp4"
+      }
+    ];
+
+    const container = document.getElementById('companiesContainer');
+
+    companies.forEach((c, index) => {
+      const section = document.createElement('section');
+      section.className = 'company-section';
+      section.innerHTML = `
+        <div class="app-card">
+          <div class="app-icon"></div>
+          <h2>${c.name}</h2>
+          <p>Role: ${c.role}</p>
+          <p>Years: ${c.years}</p>
+          <button onclick="showDetails(${index})">Explore Projects</button>
+        </div>
+
+        <div class="details" id="details-${index}">
+          <h3>What I Did at ${c.name}</h3>
+          <p>${c.description}</p>
+          <video controls>
+            <source src="${c.video}" type="video/mp4" />
+          </video>
+        </div>
+      `;
+      container.appendChild(section);
+    });
+
+    const home = document.getElementById('home');
+    const sections = document.querySelectorAll('.company-section');
+    const projectsPage = document.getElementById('projectsPage');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 100) home.classList.add('scroll-fade');
+      else home.classList.remove('scroll-fade');
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 120) {
+          section.classList.add('visible');
+        }
+      });
+
+      const rectP = projectsPage.getBoundingClientRect();
+      if (rectP.top < window.innerHeight - 120) {
+        projectsPage.classList.add('visible');
+      }
+    });
+
+    function showDetails(index) {
+      const details = document.getElementById(`details-${index}`);
+      details.classList.add('visible');
+      details.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+    });
+  </script>
+</body>
+</html>
