@@ -1,243 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Divya Belchada – UX Specialist</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0f;
-      color: white;
-      overflow-x: hidden;
+      font-family: "Inter", sans-serif;
+      background: #ffffff;
+      color: #111;
     }
 
-    section {
+    header {
       width: 100%;
-      min-height: 100vh;
+      padding: 20px 40px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 40px 20px;
+      box-sizing: border-box;
     }
 
-    /* Fade-out Home Section */
-    #home {
-      position: relative;
-      z-index: 2;
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-      text-align: center;
-    }
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(-40px);
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #111;
+      font-size: 15px;
+      opacity: 0.8;
     }
 
-    /* Company Sections */
-    .company-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .visible {
+    nav a:hover {
       opacity: 1;
-      transform: translateY(0);
     }
 
-    .app-card {
+    .hero {
       text-align: center;
-      margin-bottom: 20px;
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(6px);
-      width: 100%;
-      max-width: 700px;
-      box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.3);
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #fff6e9, #e8efff);
     }
 
-    .app-icon {
-      width: 100px;
-      height: 100px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #444, #666);
-      margin: 0 auto 15px auto;
-    }
-
-    button {
-      padding: 12px 22px;
-      border: none;
-      border-radius: 8px;
-      background: #ffcc00;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    .details {
-      max-width: 800px;
-      margin-top: 40px;
-      text-align: center;
-      line-height: 1.6;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      padding-bottom: 60px;
-    }
-    .details.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    /* Project Section */
-    #projectsPage {
-      min-height: 100vh;
-      padding: 60px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    #projectsPage.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Dark/Light Toggle */
-    #themeToggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px;
+    .hero img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: none;
-      background: white;
-      color: black;
-      cursor: pointer;
+      object-fit: cover;
+      margin-bottom: 24px;
     }
 
-    /* Light Mode */
-    body.light {
-      background: #f2f2f2;
-      color: black;
+    .hero h1 {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+      opacity: 0.8;
     }
-    body.light .app-card {
-      background: rgba(0,0,0,0.05);
+
+    .hero h2 {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: 600;
     }
-    body.light button {
-      background: #ff9900;
+
+    .hero p {
+      max-width: 600px;
+      margin: 10px auto;
+      font-size: 17px;
+      line-height: 1.6;
     }
-    body.light #themeToggle {
-      background: black;
-      color: white;
+
+    .section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 30px;
+      background: #fff;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .card-header span {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .btn-view {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .btn-view:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 14px;
+      opacity: 0.6;
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <div class="logo"><strong>Divya B.</strong></div>
+    <nav>
+      <a href="#works">Works</a>
+      <a href="#about">About Me</a>
+      <a href="#resume">Resume</a>
+    </nav>
+  </header>
 
-  <button id="themeToggle">🌓</button>
-
-  <section id="home">
-    <h1>Hello, I'm Abhijit</h1>
-    <p>I have worked at multiple companies building production-grade apps</p>
-    <button onclick="window.location='resume.pdf'">Download Resume</button>
+  <section class="hero">
+    <img src="your-photo.jpg" alt="Divya Belchada" />
+    <h1>Hi, I’m Divya Belchada</h1>
+    <h2>UX designer</h2>
+    <p>
+      focused on creating clear, usable digital experiences. Currently on the UX team at
+      <strong>Human Factors International</strong>, advocating user-centered design practices.<br />
+      Previously at Lollypop Design Studios & Tamasha.live
+    </p>
   </section>
 
-  <!-- Multiple Companies Generated Dynamically -->
-  <div id="companiesContainer"></div>
-
-  <!-- Projects Page -->
-  <section id="projectsPage">
-    <h1>Projects</h1>
-    <p>All my notable apps and engineering work.</p>
+  <section class="section" id="experience">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Human Factors International</h3>
+          <span>UX Specialist | Jan 2024 – Present</span>
+        </div>
+        <a class="btn-view" href="#">View Projects →</a>
+      </div>
+      <p>Worked as a UX consultant for Tata Play – leading OTT & DTH provider. Led a retention-focused project to reduce
+        drop-offs by identifying friction points and integrating contextual nudges & offers. Enabled team efficiency by
+        mentoring peers, improving Figma practices, & integrating AI into workflows.</p>
+    </div>
   </section>
 
-  <script>
-    const companies = [
-      {
-        name: "XYZ App",
-        role: "Senior Developer",
-        years: "2020 - 2024",
-        description: "Built scalable backend APIs, improved system performance by 60%, implemented CI/CD pipelines.",
-        video: "demo.mp4"
-      },
-      {
-        name: "Alpha Finance App",
-        role: "Full Stack Developer",
-        years: "2018 - 2020",
-        description: "Developed a financial dashboard, integrated live market feeds, added advanced analytics.",
-        video: "demo2.mp4"
-      }
-    ];
-
-    const container = document.getElementById('companiesContainer');
-
-    companies.forEach((c, index) => {
-      const section = document.createElement('section');
-      section.className = 'company-section';
-      section.innerHTML = `
-        <div class="app-card">
-          <div class="app-icon"></div>
-          <h2>${c.name}</h2>
-          <p>Role: ${c.role}</p>
-          <p>Years: ${c.years}</p>
-          <button onclick="showDetails(${index})">Explore Projects</button>
-        </div>
-
-        <div class="details" id="details-${index}">
-          <h3>What I Did at ${c.name}</h3>
-          <p>${c.description}</p>
-          <video controls>
-            <source src="${c.video}" type="video/mp4" />
-          </video>
-        </div>
-      `;
-      container.appendChild(section);
-    });
-
-    const home = document.getElementById('home');
-    const sections = document.querySelectorAll('.company-section');
-    const projectsPage = document.getElementById('projectsPage');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-
-      if (scrollY > 100) home.classList.add('scroll-fade');
-      else home.classList.remove('scroll-fade');
-
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
-          section.classList.add('visible');
-        }
-      });
-
-      const rectP = projectsPage.getBoundingClientRect();
-      if (rectP.top < window.innerHeight - 120) {
-        projectsPage.classList.add('visible');
-      }
-    });
-
-    function showDetails(index) {
-      const details = document.getElementById(`details-${index}`);
-      details.classList.add('visible');
-      details.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-    });
-  </script>
+  <footer>
+    © 2025 Divya Belchada — All rights reserved.
+  </footer>
 </body>
+
 </html>
