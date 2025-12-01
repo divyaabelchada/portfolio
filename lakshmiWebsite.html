@@ -2,42 +2,79 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Divya Belchada – UX Specialist</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Divya Belchada — Senior Product Designer</title>
   <style>
+    :root {
+      --bg: #fff;
+      --muted: #6b6b6b;
+      --accent: #0b1226;
+      --card-shadow: 0 6px 22px rgba(16, 24, 40, 0.06);
+      --radius: 12px;
+      --gap: 28px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
     body {
+      height: 100%;
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #ffffff;
-      color: #111;
+      background: linear-gradient(180deg, #fbfcfd 0%, #ffffff 100%);
+      color: var(--accent);
     }
 
-    header {
-      width: 100%;
-      padding: 20px 40px;
+    /* NAV */
+    .nav {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 0 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-sizing: border-box;
+      justify-content: space-between
     }
 
-    nav a {
-      margin-left: 24px;
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center
+    }
+
+    .nav-links a {
+      color: var(--muted);
       text-decoration: none;
-      color: #111;
-      font-size: 15px;
-      opacity: 0.8;
+      font-size: 14px
     }
 
-    nav a:hover {
-      opacity: 1;
+    .btn-ghost {
+      border: 1px solid #e6e6e6;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
     }
 
+    /* HERO */
     .hero {
+      max-width: 1100px;
+      margin: 36px auto 60px;
+      padding: 40px 24px;
+      /* display: grid;
+      grid-template-columns: 0.5fr; */
+      /* gap: 16px; */
+      align-items: center;
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #fff6e9, #e8efff);
     }
 
     .hero img {
@@ -45,122 +82,542 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 24px;
+      margin-top: 24px;
     }
 
-    .hero h1 {
-      font-size: 18px;
-      font-weight: 400;
-      margin: 0;
-      opacity: 0.8;
+    .hero-left h1 {
+      font-size: 36px;
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-weight: 700
     }
 
-    .hero h2 {
-      margin-top: 10px;
-      font-size: 28px;
-      font-weight: 600;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 10px auto;
+    .hero-left p.lead {
+      margin: 0 0 20px;
+      color: var(--muted);
       font-size: 17px;
-      line-height: 1.6;
+      line-height: 1.6
     }
 
-    .section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .btn-primary {
+      background: #2569ED;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .hero-meta {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* illustration */
+    .hero-right {
+      display: flex;
+      justify-content: center
+    }
+
+    .illustration {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 14px;
+      padding: 26px;
+      background: #fff;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .illustration svg {
+      width: 100%;
+      height: auto;
+      opacity: 0.9
+    }
+
+    /* logos */
+    .clients {
+      max-width: 1100px;
+      margin: 22px auto;
+      padding: 18px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* sections */
+    .container {
+      max-width: 1100px;
+      margin: 48px auto;
+      padding: 0 24px
+    }
+
+    h2.section-title {
+      font-size: 22px;
+      margin: 0 0 18px;
+      font-weight: 700;
+      color: var(--accent)
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
     }
 
     .card {
-      border: 1px solid #eee;
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 30px;
       background: #fff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--card-shadow);
     }
 
-    .card-header {
+    .card p {
+      color: var(--muted);
+      margin: 8px 0 0
+    }
+
+    /* project */
+    .project {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 56px;
+    }
+
+    .project .thumb {
+      width: 340px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0
+    }
+
+    .project .thumb img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block
+    }
+
+    .project .meta {
+      flex: 1
+    }
+
+    .meta .role {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px
+    }
+
+    .meta ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted)
+    }
+
+    .tags {
+      margin-top: 12px
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f3f4f6;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-right: 8px
+    }
+
+    /* quote */
+    .quote {
+      margin: 60px auto;
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+      box-shadow: 0 4px 12px rgba(11, 18, 38, 0.03)
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: 18px
+    }
+
+    /* CTA footer */
+    .contact-cta {
+      max-width: 1100px;
+      margin: 48px auto;
+      padding: 28px 24px;
+      border-radius: 12px;
+      background: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .card-header h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .card-header span {
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-    .btn-view {
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: #111;
-      color: #fff;
-      font-size: 14px;
-      text-decoration: none;
-    }
-
-    .btn-view:hover {
-      opacity: 0.85;
+      box-shadow: var(--card-shadow)
     }
 
     footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 14px;
-      opacity: 0.6;
+      max-width: 1100px;
+      margin: 48px auto 80px;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* subtle animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 520ms cubic-bezier(.2, .9, .2, 1)
+    }
+
+    .in-view {
+      opacity: 1;
+      transform: none
+    }
+
+    /* 1. Set up the container */
+    .image-container {
+      /* Use relative positioning for the container */
+      position: relative;
+      /* This ensures the button is positioned relative to the image */
+      display: inline-block;
+      /* Allows the container to wrap tightly around the image */
+      cursor: pointer;
+      /* Changes mouse to a pointer to indicate interactivity */
+    }
+
+    /* 2. Style the image */
+    .image-container img {
+      /* Ensures the image fills the container */
+      display: block;
+      width: 300px;
+      /* Example size */
+      height: auto;
+    }
+
+    /* 3. Style the button */
+    .hover-button {
+      /* Initially hide the button */
+      display: none;
+      /* Position the button absolutely within the container */
+      position: absolute;
+      top: 50%;
+      /* Center vertically */
+      left: 50%;
+      /* Center horizontally */
+      transform: translate(-50%, -50%);
+      /* Adjust for true centering */
+
+      /* Optional: Basic button styling */
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Semi-transparent black */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10;
+      /* Ensures the button is above the image */
+      transition: background-color 0.3s;
+      /* Smooth hover effect for button itself */
+    }
+
+    /* 4. Show the button on container hover */
+    .image-container:hover .hover-button {
+      /* Change display to block (or another value) when the container is hovered */
+      display: block;
+    }
+
+    /* Optional: Button hover state for interaction */
+    .hover-button:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        flex-direction: column;
+        margin-top: 32px;
+      }
+
+      .hero-right {
+        order: -1;
+        margin-bottom: 24px
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr
+      }
+
+      .clients {
+        flex-wrap: wrap
+      }
+
+      .hide-on-mobile {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo"><strong>Divya B.</strong></div>
-    <nav>
-      <a href="#works">Works</a>
-      <a href="#about">About Me</a>
-      <a href="#resume">Resume</a>
-    </nav>
+  <nav class="nav fade-in">
+    <div class="brand">Divya B.</div>
+    <div class="nav-links">
+
+      <a href="https://drive.google.com/file/d/1mveaa_Q6TtY3Xgl6XJ37GDxOqeA6UZhk/view?usp=sharing" target="_blank"
+        class="btn-ghost">Resume</a>
+    </div>
+  </nav>
+
+  <header class="hero fade-in">
+    <div>
+      <a class="btn-ghost"
+        href="https://www.figma.com/deck/gLc8lDbJc8wT26JKsTLPZm/Financial-Literacy?node-id=8-1427&viewport=-117%2C-85%2C0.55&t=kpT1cDQPkbhul7wg-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1"
+        target="_blank">🏅Top
+        10 Finalist - FOF Mumbai Designathon'25</a>
+    </div>
+    <img src="divyaDP.png">
+    <p style="font-size: 1.25em; margin:1.25em 0%;">Hi, I’m Divyalakshmi Belchada</p>
+    <h2 style=" margin: 0%;">UX Designer focused on designing scalable, persuasive, and human-centered digital
+      products. I specialise in
+      clean
+      execution for enterprise and consumer experiences.</2>
+
+      <!-- <div class="cta-row">
+        <a class="btn-primary" href="#contact">Get Started</a>
+        <a class="btn-ghost" href="#works">View Work</a>
+      </div> -->
+
+      <div class="hero-meta">UX Specialist, HFI–CUA™ · Mumbai / Pune · +91-7718962565 · belchadadivya@gmail.com</div>
+      </div>
+
+      <!-- <div class="hero-right">
+      <div class="illustration hide-on-mobile">
+        Simple line-illustration placeholder
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <rect width="600" height="400" fill="#fff" rx="10" />
+          <g fill="none" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M120 260c40-40 120-40 160 0" />
+            <circle cx="360" cy="120" r="56" />
+            <path d="M220 80h120v40H220z" />
+            <path d="M420 220c0-40 40-60 68-48" />
+          </g>
+        </svg>
+      </div>-->
   </header>
 
-  <section class="hero">
-    <img src="your-photo.jpg" alt="Divya Belchada" />
-    <h1>Hi, I’m Divya Belchada</h1>
-    <h2>UX designer</h2>
-    <p>
-      focused on creating clear, usable digital experiences. Currently on the UX team at
-      <strong>Human Factors International</strong>, advocating user-centered design practices.<br />
-      Previously at Lollypop Design Studios & Tamasha.live
-    </p>
-  </section>
+  <div class="clients fade-in" aria-hidden>
+    <span>Worked with</span>
+    <strong style="margin-left:8px;">Tata Play</strong>
+    <span style="opacity:0.6">·</span>
+    <strong>Human Factors International</strong>
+    <span style="opacity:0.6">·</span>
+    <strong>Lollypop Design</strong>
+    <span style="opacity:0.6">·</span>
+    <strong>Gamepe Technologies</strong>
+  </div>
 
-  <section class="section" id="experience">
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <h3>Human Factors International</h3>
-          <span>UX Specialist | Jan 2024 – Present</span>
+  <main>
+    <section id="works" class="container fade-in">
+      <h2 class="section-title">Selected Work</h2>
+
+      <!-- Tata Play project (priority first) -->
+      <article class="project fade-in">
+        <div class="thumb">
+          <img src="Tata Play.png" alt="Tata Play overview" />
         </div>
-        <a class="btn-view" href="#">View Projects →</a>
+        <div class="meta">
+          <div class="role">UX Specialist @ Human Factors International — Tata Play (OTT + DTH)</div>
+          <h3 style="margin:8px 0 6px;">Designing Scalable UX Solutions For Business & User Needs</h3>
+          <p class="subtle-text">At Tata Play, I translate business strategies, NPS insights, and new offerings into
+            clear, intuitive user journeys. I solve daily UX problems by creating scalable, dynamic solutions that
+            improve experience while supporting business goals.</p>
+          <ul>
+            <li>Reduced drop-offs through contextual UX and offer surfaces</li>
+            <li>Established motion & micro-interaction patterns to improve perceived responsiveness</li>
+            <li>Mentored the design team on Figma best practices & introduced AI-assisted flows</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Behavioural UX</span>
+            <span class="tag">User Retention</span>
+            <span class="tag">Motion & Haptics Design</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- AgScout project -->
+      <article class="project fade-in">
+
+        <div class="thumb image-container">
+          <img src="AgScout.png" alt="AgScout" />
+          <a class="btn-ghost hover-button" href="https://agscout.ai/product/" target="_blank">View Product</a>
+        </div>
+        <div class="meta">
+          <div class="role">UX Consultant — AgScout</div>
+          <h3 style="margin:8px 0 6px;">AI-Powered Vineyard Management (Inventory, Map, Data Explorer, Dashboard)</h3>
+          <p class="subtle-text">Built an end-to-end product that surfaces complex spatial and IoT data in an accessible
+            way for growers and agronomists. Focused on reducing cognitive load and creating a reliable information
+            architecture for future predictive features.</p>
+          <ul>
+            <li>Designed modular tools to support complex agricultural workflows</li>
+            <li>Created visualization patterns to simplify data interpretation</li>
+            <li>Defined IA and states for predictive insights</li>
+
+          </ul>
+
+          <div class="tags">
+            <span class="tag">AI UX</span>
+            <span class="tag">Data Viz</span>
+            <span class="tag">Agritech</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Actualized project -->
+      <article class="project fade-in">
+        <div class="thumb image-container">
+          <img src="Actualized.png" alt="Actualized.ai" />
+          <a class="btn-ghost hover-button" href="https://actualized.ai/" target="_blank">View Product</a>
+        </div>
+        <div class="meta">
+          <div class="role">UX Designer — Actualized.ai</div>
+          <h3 style="margin:8px 0 6px;">A platform built excusively for C-Suite hiring</h3>
+          <p class="subtle-text">Built an end-to-end product that surfaces complex spatial and IoT data in an accessible
+            way for growers and agronomists. Focused on reducing cognitive load and creating a reliable information
+            architecture for future predictive features.</p>
+          <ul>
+            <li>Designed modular tools to support complex agricultural workflows</li>
+            <li>Created visualization patterns to simplify data interpretation</li>
+            <li>Defined IA and states for predictive insights</li>
+
+          </ul>
+
+          <div class="tags">
+            <span class="tag">AI UX</span>
+            <span class="tag">Data Viz</span>
+            <span class="tag">Agritech</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Additional summarized projects -->
+      <!-- <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px">
+        <div class="card fade-in">
+          <h4 style="margin:0 0 6px">Actualized — Lollypop</h4>
+          <p class="subtle-text">Product discovery, GA funnels, and conversion optimisation for an executive-facing
+            platform.</p>
+        </div>
+        <div class="card fade-in">
+          <h4 style="margin:0 0 6px">Tamasha / Gamepe</h4>
+          <p class="subtle-text">High-fidelity prototypes, motion micro-interactions, and investor-facing visuals.</p>
+        </div>
+      </div> -->
+    </section>
+
+    <!-- <section id="approach" class="container fade-in" style="margin-top:48px">
+      <h2 class="section-title">How I Work</h2>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card fade-in">
+          <h4 style="margin:0 0 6px">Strategy</h4>
+          <p class="subtle-text">Align product goals with measurable outcomes. I prioritise clarity and impact.</p>
+        </div>
+        <div class="card fade-in">
+          <h4 style="margin:0 0 6px">Systems</h4>
+          <p class="subtle-text">Design systems & patterns that keep UI predictable and scalable.</p>
+        </div>
+        <div class="card fade-in">
+          <h4 style="margin:0 0 6px">Execution</h4>
+          <p class="subtle-text">Pixel‑perfect design, motion, and handoff-ready components.</p>
+        </div>
       </div>
-      <p>Worked as a UX consultant for Tata Play – leading OTT & DTH provider. Led a retention-focused project to reduce
-        drop-offs by identifying friction points and integrating contextual nudges & offers. Enabled team efficiency by
-        mentoring peers, improving Figma practices, & integrating AI into workflows.</p>
-    </div>
-  </section>
+    </section>
+
+    <section id="about" class="container fade-in" style="margin-top:48px">
+      <h2 class="section-title">About</h2>
+      <p class="subtle-text">I’m a UX designer focused on scalable, persuasive, and human‑centered design. I enjoy
+        navigating ambiguity and balancing user empathy with product strategy. Let’s connect if you’re building products
+        that need clarity, structure, and design that truly scales.</p>
+
+      <div style="display:flex;gap:28px;margin-top:18px;flex-wrap:wrap">
+        <div style="min-width:220px">
+          <strong>Human Factors International</strong>
+          <p class="subtle-text">UX Specialist | Jan 2024 – Present<br />Worked across Tata Play and Ecobank —
+            retention, UX audits, AI-assisted workflows, and cross-market research.</p>
+        </div>
+
+        <div style="min-width:220px">
+          <strong>Lollypop Design</strong>
+          <p class="subtle-text">UX Designer | Jul 2023 – Jan 2024 — Actualized (leadership & benchmarking platform).
+            Conducted discovery, testing, and analytics.</p>
+        </div>
+
+        <div style="min-width:220px">
+          <strong>Tamasha / Gamepe</strong>
+          <p class="subtle-text">UI/UX Designer | Jan 2022 – Jun 2023 — interactive prototypes, micro animations, and
+            pitch-ready visuals.</p>
+        </div>
+      </div>
+
+    </section> -->
+
+    <section class="quote fade-in">
+      <p>“Design is the process of reducing complexity until nothing unnecessary remains.”</p>
+    </section>
+
+    <section id="contact" class="container fade-in" style="margin-top:28px">
+      <div class="contact-cta">
+        <div>
+          <strong>Interested in working together?</strong>
+          <div class="subtle-text" style="margin-top:8px">I’m available for senior product design roles, consulting, and
+            collaboration.</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="btn-primary" href="mailto:belchadadivya@gmail.com">Email me</a>
+          <a class="btn-ghost" href="https://drive.google.com/file/d/1mveaa_Q6TtY3Xgl6XJ37GDxOqeA6UZhk/view?usp=sharing"
+            target="_blank">Resume</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    © 2025 Divya Belchada — All rights reserved.
+    <div
+      style="max-width:1100px;margin:0 auto;padding:24px 24px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap">
+      <div style="opacity:0.7">© 2025 Divyalakshmi M. Belchada</div>
+    </div>
   </footer>
+
+  <script>
+    // Intersection observer to add in-view animation
+    const els = document.querySelectorAll('.fade-in');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
+  </script>
 </body>
 
 </html>
