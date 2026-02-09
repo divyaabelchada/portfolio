@@ -464,6 +464,14 @@ footer {
       margin-top: 48px;
     }
 
+
+    .case-hero__content{
+  width: 100%;
+}
+.case-hero .thumb{
+  width: 100%;
+}
+
     /* .project .thumb {
       grid-template-columns: 1fr;
     }
