@@ -1,396 +1,514 @@
-    
-    
-    :root {
-      --bg: #fff;
-      --muted: #6b6b6b;
-      --accent: #0b1226;
-      --card-shadow: 0 6px 22px rgba(16, 24, 40, 0.06);
-      --radius: 12px;
-      --gap: 28px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
+:root {
+  --bg: #fff;
+  --muted: #6b6b6b;
+  --accent: #0b1226;
+  --card-shadow: 0 6px 22px rgba(16, 24, 40, 0.06);
+  --radius: 12px;
+  --gap: 28px;
+  font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial;
+  }
 
-    * {
-      box-sizing: border-box
-    }
+* {
+  box-sizing: border-box;
+  }
 
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      background: linear-gradient(180deg, #fbfcfd 0%, #ffffff 100%);
-      color: var(--accent);
-    }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, #fbfcfd 0%, #ffffff 100%);
+  color: var(--accent);
+}
 
-    /* NAV */
-    .nav {
-      max-width: 1100px;
-      margin: 28px auto 0;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
 
-    mark {
-      background-color: transparent;
-      color: rgb(0, 0, 0, 0.5);
-      /* Optional: Change text color for better contrast */
-    }
+/*projects */
+.case-hero {
+  display: flex;
+  width: 100%;
+  gap: 36px;
+  align-items: center;
+}
+.case-hero__content{
+  width: 50%;
+}
+.case-hero .thumb{
+  width: 50%;
+}
 
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.2px
-    }
+.case-hero__logo {
+  height: 28px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      align-items: center
-    }
+.case-hero h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
 
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px
-    }
+.case-hero h1 span {
+  color: #000;
+  font-weight: 700;
+}
 
-    .btn-ghost {
-      border: 1px solid #e6e6e6;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #fff;
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-    }
+.case-hero__duration {
+  font-size: 1.2rem;
+  color: #6b6b6b;
+  margin-bottom: 32px;
+}
 
-    /* HERO */
-    .hero {
-      max-width: 800px;
-      margin: 36px auto 60px;
-      padding: 40px 24px;
-      /* display: grid;
+.case-hero__meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.case-hero__meta li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.case-hero__meta li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #8a8a8a;
+}
+
+.case-hero__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.case-hero__visual img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* NAV */
+.nav {
+  max-width: 1100px;
+  margin: 8px auto 0;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+  justify-content: space-between;
+  }
+
+mark {
+  background-color: transparent;
+  color: rgb(0, 0, 0, 0.5);
+  /* Optional: Change text color for better contrast */
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  }
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  }
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  }
+
+.scroll-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  /* background: linear-gradient(180deg, #6BA9EF 0%, #ffffff80 100%); */
+  background: #ffffffcc;
+  backdrop-filter: blur(8px);
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+  border-bottom: 1px solid #6ba9ef24;
+}
+
+.scroll-nav.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.on-scroll-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-ghost {
+  border: 1px solid #e6e6e6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  max-width: 800px;
+  margin: 36px auto 60px;
+  padding: 40px 24px;
+  /* display: grid;
       grid-template-columns: 0.5fr; */
-      /* gap: 16px; */
-      align-items: center;
-      text-align: center;
+  /* gap: 16px; */
+    align-items: center;
+    text-align: center;
+  }
+
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 24px;
+}
+
+.hero-left h1 {
+  font-size: 36px;
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-weight: 700;
+  }
+
+.hero-left p.lead {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  }
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  }
+
+.btn-primary {
+  background: #2569ed;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+  font-weight: 600;
+  }
+
+.hero-meta {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  }
+
+/* illustration */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  }
+
+.illustration {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 14px;
+  padding: 26px;
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+.illustration svg {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  }
+
+/* logos */
+.clients {
+  max-width: 1100px;
+  margin: 0px auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+  }
+
+main {
+  background-color: #fafafa;
+  padding-top: 16px;
+}
+/* sections */
+.container {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 24px;
+  }
+
+h2.section-title {
+  font-size: 1.5rem;
+    
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  }
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: var(--card-shadow);
+}
+
+.card p {
+  color: var(--muted);
+  margin: 8px 0 0;
+  }
+
+/* project */
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+    align-items: flex-start;
+    margin-top: 108px;
+  }
+
+
+.project .meta {
+  flex: 1;
+  }
+
+.meta .role {
+  font-size: 14px;
+
+  color: var(--muted);
+  margin-bottom: 8px;
+  }
+
+.meta ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  }
+
+.tags {
+  margin-top: 12px;
+  }
+
+.tag {
+  display: inline-block;
+  background: #f3f4f6;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-right: 8px;
+  }
+
+/* quote */
+.quote {
+  margin: 60px auto;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  box-shadow: 0 4px 12px rgba(11, 18, 38, 0.03);
+  }
+
+.quote p {
+  margin: 0;
+  font-size: 18px;
+  }
+
+/* CTA footer */
+.contact-cta {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 28px 24px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  }
+
+footer {
+  max-width: 1100px;
+  margin: 48px auto 80px;
+  padding: 0 24px;
+  color: var(--muted);
+  font-size: 13px;
+  }
+
+/* subtle animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+.in-view {
+  opacity: 1;
+  transform: none;
+  }
+
+/* 1. Set up the container */
+.image-container {
+  /* Use relative positioning for the container */
+  position: relative;
+  /* This ensures the button is positioned relative to the image */
+  display: inline-block;
+  /* Allows the container to wrap tightly around the image */
+  cursor: pointer;
+  /* Changes mouse to a pointer to indicate interactivity */
+}
+
+/* 2. Style the image */
+.image-container img {
+  /* Ensures the image fills the container */
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  /* Example size */
+  height: auto;
+}
+
+/* 3. Style the button */
+.hover-button {
+  /* Initially hide the button */
+  display: none;
+  /* Position the button absolutely within the container */
+  position: absolute;
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust for true centering */
+
+  /* Optional: Basic button styling */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    /* Ensures the button is above the image */
+    transition: background-color 0.3s;
+    /* Smooth hover effect for button itself */
+  }
+
+/* 4. Show the button on container hover */
+.image-container:hover .hover-button {
+  /* Change display to block (or another value) when the container is hovered */
+  display: block;
+}
+
+/* Optional: Button hover state for interaction */
+.hover-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.brand-img {
+  height: 108px;
+  width: 160px;
+    object-fit: contain;
+  }
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    margin: 16px auto 24px;
+  }
+
+    .project {
+      flex-direction: column;
+      margin-top: 48px;
     }
 
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-top: 24px;
+    /* .project .thumb {
+      grid-template-columns: 1fr;
     }
-
-    .hero-left h1 {
-      font-size: 36px;
-      margin: 0 0 14px;
-      color: var(--accent);
-      font-weight: 700
-    }
-
-    .hero-left p.lead {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.6
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      align-items: center
-    }
-
-    .btn-primary {
-      background: #2569ED;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600
-    }
-
-    .hero-meta {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    /* illustration */
+  
+    .project .thumb img:first-child {
+      grid-column: auto;
+    } */
     .hero-right {
-      display: flex;
-      justify-content: center
-    }
-
-    .illustration {
-      width: 100%;
-      max-width: 380px;
-      border-radius: 14px;
-      padding: 26px;
-      background: #fff;
-      box-shadow: var(--card-shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .illustration svg {
-      width: 100%;
-      height: auto;
-      opacity: 0.9
-    }
-
-    /* logos */
-    .clients {
-      max-width: 1100px;
-      margin: 0px auto;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    /* sections */
-    .container {
-      max-width: 1100px;
-      margin: 48px auto;
-      padding: 0 24px
-    }
-
-    h2.section-title {
-      font-size: 22px;
-      margin: 0 0 18px;
-      font-weight: 700;
-      color: var(--accent)
+      order: -1;
+    margin-bottom: 24px;
     }
 
     .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px
+    grid-template-columns: 1fr;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: var(--card-shadow);
+    .clients {
+    flex-wrap: wrap;
     }
 
-    .card p {
-      color: var(--muted);
-      margin: 8px 0 0
-    }
-
-    /* project */
-    .project {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      margin-top: 72px;
-    }
-
-    .project .thumb {
-      width: 340px;
-      border-radius: 10px;
-      overflow: hidden;
-      flex-shrink: 0
-    }
-
-    .project .thumb img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block
-    }
-
-    .project .meta {
-      flex: 1
-    }
-
-    .meta .role {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 8px
-    }
-
-    .meta ul {
-      margin: 12px 0 0;
-      padding-left: 20px;
-      color: var(--muted)
-    }
-
-    .tags {
-      margin-top: 12px
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f3f4f6;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin-right: 8px
-    }
-
-    /* quote */
-    .quote {
-      margin: 60px auto;
-      background: #fafafa;
-      border-radius: 10px;
-      padding: 28px;
-      text-align: center;
-      color: var(--muted);
-      box-shadow: 0 4px 12px rgba(11, 18, 38, 0.03)
-    }
-
-    .quote p {
-      margin: 0;
-      font-size: 18px
-    }
-
-    /* CTA footer */
-    .contact-cta {
-      max-width: 1100px;
-      margin: 48px auto;
-      padding: 28px 24px;
-      border-radius: 12px;
-      background: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--card-shadow)
-    }
-
-    footer {
-      max-width: 1100px;
-      margin: 48px auto 80px;
-      padding: 0 24px;
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    /* subtle animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 520ms cubic-bezier(.2, .9, .2, 1)
-    }
-
-    .in-view {
-      opacity: 1;
-      transform: none
-    }
-
-    /* 1. Set up the container */
-    .image-container {
-      /* Use relative positioning for the container */
-      position: relative;
-      /* This ensures the button is positioned relative to the image */
-      display: inline-block;
-      /* Allows the container to wrap tightly around the image */
-      cursor: pointer;
-      /* Changes mouse to a pointer to indicate interactivity */
-    }
-
-    /* 2. Style the image */
-    .image-container img {
-      /* Ensures the image fills the container */
-      display: block;
-      width: 300px;
-      /* Example size */
-      height: auto;
-    }
-
-    /* 3. Style the button */
-    .hover-button {
-      /* Initially hide the button */
+    .hide-on-mobile {
       display: none;
-      /* Position the button absolutely within the container */
-      position: absolute;
-      top: 50%;
-      /* Center vertically */
-      left: 50%;
-      /* Center horizontally */
-      transform: translate(-50%, -50%);
-      /* Adjust for true centering */
-
-      /* Optional: Basic button styling */
-      padding: 10px 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      /* Semi-transparent black */
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 10;
-      /* Ensures the button is above the image */
-      transition: background-color 0.3s;
-      /* Smooth hover effect for button itself */
     }
 
-    /* 4. Show the button on container hover */
-    .image-container:hover .hover-button {
-      /* Change display to block (or another value) when the container is hovered */
-      display: block;
-    }
-
-    /* Optional: Button hover state for interaction */
-    .hover-button:hover {
-      background-color: rgba(0, 0, 0, 0.9);
+    .contact-cta {
+      flex-direction: column;
+      align-items: left;
+      gap: 16px;
     }
 
     .brand-img {
-      height: 108px;
-      width: 120px;
-      object-fit: contain;
-    }
+      height: 80px;
+  }
 
-    @media (max-width:900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        margin: 16px auto 24px;
-      }
+  .case-hero {
+    grid-template-columns: 1fr;
+    padding: 64px 24px;
+    gap: 48px;
+  }
 
-      .project {
-        flex-direction: column;
-        margin-top: 48px;
-      }
+  .case-hero h1 {
+    font-size: 1.2rem;
+  }
 
-      .hero-right {
-        order: -1;
-        margin-bottom: 24px
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr
-      }
-
-      .clients {
-        flex-wrap: wrap
-      }
-
-      .hide-on-mobile {
-        display: none;
-      }
-
-      .contact-cta {
-        flex-direction: column;
-        align-items: left;
-        gap: 16px;
-      }
-
-      .brand-img {
-        height: 80px;
-        object-fit: contain;
-      }
-
-    }
+  .case-hero__visual {
+    order: -1;
+  }
+}
