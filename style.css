@@ -464,6 +464,9 @@ footer {
       margin-top: 48px;
     }
 
+    .case-hero {
+  flex-direction: column;
+}
 
     .case-hero__content{
   width: 100%;
